@@ -1,0 +1,23 @@
+html,
+body{
+	margin: 0;
+	height: 100%;
+}
+
+#content{
+	overflow: hidden;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+	background: #f4f4f4;
+	position: relative;
+	padding: 10px;
+}
+.sec-arrow{
+	width: 100px;
+	height: 1px;
+	background: #f00;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
