@@ -7,7 +7,7 @@
 
 	
 	gulp.task('js', function() {
-	  gulp.src('src/js/**/*.js')
+	  gulp.src('src/js/*.js')
 		.pipe(concat('app.js'))
 		.pipe(gulp.dest('live/js/'))
 	});

@@ -10,7 +10,12 @@
     </head>
 <body>
     <div id="content">
-    	
+    	<my-watch ></my-watch>
+        <form name="checkboxForm"  controller="clockController">
+            <label>Get digital clock:
+                <input type="checkbox" ng-model="cc.value">
+            </label>
+        </form>
     </div>
 </body>
 </html>

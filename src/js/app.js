@@ -3,10 +3,9 @@
 
 	angular
 		.module('ngClock', ['ui.router', 'ngClock.watch'])
-		.config(crudConfig);
+		.config(clockConfig);
 
-	/** @ngInject */
-	function crudConfig($stateProvider, $urlRouterProvider) {
+	function clockConfig($stateProvider, $urlRouterProvider) {
 
 		$urlRouterProvider.otherwise('/');
 	}
