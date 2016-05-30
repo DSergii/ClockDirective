@@ -2,25 +2,15 @@
 	'use strict'
 
 	angular
-		.module('ngClock', ['ui.router', 'ngClock.watch'])
-		.config(clockConfig);
-
-	function clockConfig($stateProvider, $urlRouterProvider) {
-
-		$urlRouterProvider.otherwise('/');
-	}
-
-})();
-
-;(function(){
-	'use strict'
-
-	angular
 		.module('ngClock.watch', [])
 		.directive('myWatch', function($interval){
 			return {
 				restrict: 'E',
-				templateUrl: 'clock.tmpl.html',
+				templateUrl: 'app/directives/clock.tmpl.html',
+				scope: true,
+				scope: {
+					showDigital: '=showDigital'
+				},
 				link: function(scope, element, attrs){
 
         			var hours,
@@ -55,6 +45,10 @@
 
 						}, 1000);
 			        }
+
+			        scope.$watch('showDigital', function(value) {
+			          console.log(value, 888);
+			        });
 				}
 			}
 		});

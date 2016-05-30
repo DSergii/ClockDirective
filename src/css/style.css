@@ -13,6 +13,13 @@ body{
 	position: relative;
 	padding: 10px;
 }
+
+.hold-form{
+	overflow: hidden;
+	padding: 60px 0;
+	text-align: center;
+}
+
 .hour,
 .minut,
 .second{

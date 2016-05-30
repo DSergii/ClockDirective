@@ -6,16 +6,13 @@
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="libs/angular/angular.js"></script>
         <script type="text/javascript" src="libs/angular/angular-ui-router.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="app/app.js"></script>
     </head>
 <body>
     <div id="content">
-    	<my-watch ></my-watch>
-        <form name="checkboxForm"  controller="clockController">
-            <label>Get digital clock:
-                <input type="checkbox" ng-model="cc.value">
-            </label>
-        </form>
+    	<div ui-view>
+
+        </div>
     </div>
 </body>
 </html>

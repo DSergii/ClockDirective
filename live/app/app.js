@@ -2,11 +2,33 @@
 	'use strict'
 
 	angular
+		.module('ngClock', [
+			'ui.router',
+			'ngClock.main',
+			'ngClock.watch'
+		])
+		.config(clockConfig);
+
+	function clockConfig($stateProvider, $urlRouterProvider) {
+
+		$urlRouterProvider.otherwise('/');
+	}
+
+})();
+
+;(function(){
+	'use strict'
+
+	angular
 		.module('ngClock.watch', [])
 		.directive('myWatch', function($interval){
 			return {
 				restrict: 'E',
-				templateUrl: 'clock.tmpl.html',
+				templateUrl: 'app/directives/clock.tmpl.html',
+				scope: true,
+				scope: {
+					showDigital: '=showDigital'
+				},
 				link: function(scope, element, attrs){
 
         			var hours,
@@ -41,7 +63,44 @@
 
 						}, 1000);
 			        }
+
+			        scope.$watch('showDigital', function(value) {
+			          console.log(value, 888);
+			        });
 				}
 			}
 		});
+})();
+;(function(){
+	'use strict'
+
+	angular
+		.module('ngClock.main', [])
+		.controller('mainCtrl', mainCtrl);
+
+	function mainCtrl($scope){
+
+		var vm = this;
+		vm.digital = false;
+
+	}
+
+})();
+;(function (){
+	'use strict'
+
+	angular
+		.module('ngClock.main')
+		.config(routerConfig);
+
+	function routerConfig($stateProvider){
+		$stateProvider.state('main',{
+			url: '/main',
+			security: true,
+			templateUrl: 'app/main/main.tmpl.html',
+			controller: 'mainCtrl',
+			controllerAs: 'mc'
+		});
+	}
+	
 })();
