@@ -6,8 +6,8 @@
 		.config(routerConfig);
 
 	function routerConfig($stateProvider){
-		$stateProvider.state('main',{
-			url: '/main',
+		$stateProvider.state('/',{
+			url: '/',
 			security: true,
 			templateUrl: 'app/main/main.tmpl.html',
 			controller: 'mainCtrl',

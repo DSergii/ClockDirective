@@ -8,8 +8,6 @@
 	function mainCtrl($scope){
 
 		var vm = this;
-		vm.digital = false;
-
 	}
 
 })();

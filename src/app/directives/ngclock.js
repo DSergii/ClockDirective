@@ -8,10 +8,9 @@
 				restrict: 'E',
 				templateUrl: 'app/directives/clock.tmpl.html',
 				scope: true,
-				scope: {
-					showDigital: '=showDigital'
-				},
 				link: function(scope, element, attrs){
+					
+					scope.loading = true;
 
         			var hours,
         				minutes,
@@ -29,6 +28,7 @@
 
 			        	$interval(function(){
 			        		var date = new Date();
+
 			        		hours = date.getHours() % 12 || 12;
 			        		minutes = date.getMinutes();
 			        		seconds = date.getSeconds();
@@ -41,13 +41,15 @@
  							minutes = (minutes.toString().length == 1) ? '0' + minutes : minutes;
  							seconds = (seconds.toString().length == 1) ? '0' + seconds : seconds;
 
-							scope.time = (hours +' : '+ minutes +' : '+ seconds);
+							scope.digitalTime = (hours +' : '+ minutes +' : '+ seconds);
+
+							scope.loading = false;
 
 						}, 1000);
 			        }
 
-			        scope.$watch('showDigital', function(value) {
-			          console.log(value, 888);
+			        scope.$watch('digital', function(value) {
+			        	scope.digital = value;
 			        });
 				}
 			}

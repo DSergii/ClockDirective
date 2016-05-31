@@ -36,7 +36,8 @@
 	gulp.task('webserver', function() {
 		gulp.src('live/')
 			.pipe(webserver({
-			livereload: true
+			livereload: true,
+			open: true
 		}));
 	});
 	
